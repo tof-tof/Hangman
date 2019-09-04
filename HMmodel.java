@@ -10,18 +10,19 @@ class HMmodel {
     private char[] guessProgress;
     private int gameCode =0; //-1= game lost; 0 = game in play; 1=game won
     private int guesses =2; //at end of testing, change to 8
-    private ArrayList<Character> guessedLetters;
+    private ArrayList<Character> guessedLetters= new ArrayList<Character>();
+
     int getGameCode(){
         return gameCode;
     }
-
     char[] getWordPicked(){ return wordPicked; }
-
     char[] getGuessProgress() { return guessProgress; }
     void resetGuessedLetters(){guessedLetters = new ArrayList<Character>();}
     void resetGameCode(){ gameCode=0; }
     void resetGuesses(){guesses =2;}
     int getGuesses(){ return guesses; }
+
+    ArrayList<Character> getGuessedLetters(){ return guessedLetters; }
 
     void setWordPicked(){
         int randomInt = (int)(10.0 * Math.random());
@@ -44,15 +45,19 @@ class HMmodel {
         }
     }
 
-    boolean isCorrectGuess(char letter){
-        boolean correctGuess = false;
+    int isCorrectGuess(char letter){//0 = guessed before, -1=false (incorrect Guess) 1 = true (correct guess)
+        if (guessedLetters.contains(letter)){
+            return 0;
+        }
+        guessedLetters.add(letter);
+        int correctGuess = -1;
         for (int i = 0; i < wordPicked.length; i++) {
             if (wordPicked[i] == letter) {
                 guessProgress[i] = letter;
-                correctGuess = true;
+                correctGuess = 1;
             }
         }
-        if (!correctGuess){guesses-=1;}
+        if (correctGuess==-1){guesses-=1;}
         setGameCode();
         return correctGuess;
     }

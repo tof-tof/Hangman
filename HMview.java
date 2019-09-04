@@ -9,8 +9,12 @@ public class HMview {
     private HMcontroller controller = new HMcontroller();
 
     private void printGuessOutcome(char letter){
-        if (controller.isCorrectGuess(letter)){
+        int isCorrect=controller.isCorrectGuess(letter);
+        if (isCorrect==1){
             System.out.println("This guess is correct");
+        }
+        else if (isCorrect==0){
+            System.out.println(letter + " has already been guessed");
         }
         else {
             System.out.println("There are no "+letter+"'s in the word");
@@ -19,6 +23,7 @@ public class HMview {
 
     private void printResult(){
         System.out.println("The word now looks like this: "+ controller.getGuessProgress());
+        System.out.println("Letters Guessed: "+ controller.getGuessedLetters());
         System.out.println(controller.guessesLeft());
         System.out.print("Your Next Guess: ");
     }

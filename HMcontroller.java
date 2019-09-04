@@ -1,5 +1,8 @@
 package Hangman;
- class HMcontroller {
+
+import java.util.ArrayList;
+
+class HMcontroller {
 
     private HMmodel model = new HMmodel();
     String getGuessProgress(){
@@ -14,13 +17,16 @@ package Hangman;
         return model.getGameCode();
     }
 
-     boolean isCorrectGuess(char letter){
+    ArrayList<Character> getGuessedLetters(){ return model.getGuessedLetters(); }
+
+    int isCorrectGuess(char letter){
          return model.isCorrectGuess(letter);
      }
 
     void setupGame(){
         model.resetGameCode();
         model.resetGuesses();
+        model.resetGuessedLetters();
         model.setWordPicked();
         model.ResetGuessProgress();
     }
