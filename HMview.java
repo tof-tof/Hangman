@@ -11,7 +11,7 @@ public class HMview {
     private void printGuessOutcome(char letter){
         int isCorrect=controller.isCorrectGuess(letter);
         if (isCorrect==1){
-            System.out.println("This guess is correct");
+            System.out.println("Your guess is correct");
         }
         else if (isCorrect==0){
             System.out.println(letter + " has already been guessed");
@@ -35,7 +35,7 @@ public class HMview {
             BufferedReader bufferedReader = new BufferedReader(streamReader);
             String userGuess = bufferedReader.readLine();
             while (!controller.validateInput(userGuess)){
-                System.out.println("Error: single character should be guessed");
+                System.out.println("Error: a single letter should be guessed");
                 System.out.print("Your Guess: ");
                 userGuess = bufferedReader.readLine();
             }

@@ -52,7 +52,7 @@ class HMcontroller {
     }
 
     boolean validateInput(String userGuess){
-        return  userGuess.length()==1;
+        return  userGuess.length()==1 && (Character.isLetter(userGuess.charAt(0)));
     }
 
 
