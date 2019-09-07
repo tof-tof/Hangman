@@ -4,8 +4,8 @@ import acm.program.*;
 public class HMConsoleView extends ConsoleProgram {
     private HangmanCanvas canvas;
     private HMcontroller controller = new HMcontroller();
-    public static final int WINDOW_WIDTH = 800;
-    public static final int WINDOW_HEIGHT = 600;
+    public static final int WINDOW_WIDTH = 900;
+    public static final int WINDOW_HEIGHT = 700;
 
 
     @Override
@@ -23,7 +23,9 @@ public class HMConsoleView extends ConsoleProgram {
 
     private void printResult(){
         println("The word now looks like this: "+ controller.getGuessProgress());
+        canvas.displayWord(controller.getGuessProgress());
         println("Letters Guessed: "+ controller.getGuessedLetters());
+        canvas.displayGuessedLetters(controller.getGuessedLetters());
         println(controller.guessesLeft());
         print("Your Next Guess: ");
     }
@@ -47,6 +49,7 @@ public class HMConsoleView extends ConsoleProgram {
             println("The word was: "+ controller.getWordPicked());
             println("You lose.");
         }
+        canvas.showFinishedWord(controller.getGameCode(),controller.getWordPicked());
     }
 
     public void run(){
@@ -58,14 +61,19 @@ public class HMConsoleView extends ConsoleProgram {
         runGame();
         print("Run again? (Y/N)");
         String replay = readLine();
-        while (replay.toUpperCase().equals("Y")){
-            controller.setupGame();
-            canvas.reset();
-            runGame();
+        while (!replay.toUpperCase().equals("N")){
+            if (replay.toUpperCase().equals("Y")) {
+                controller.setupGame();
+                canvas.reset();
+                runGame();
+            }
+            else {
+                showErrorMessage("Error: Enter Y or N ");
+            }
             print("Run again? (Y/N)");
             replay = readLine();
         }
-        if (replay.toUpperCase().equals("N")){exit();}
+        exit();
     }
 
     public static void main(String[] args) {
