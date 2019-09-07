@@ -45,19 +45,19 @@ class HMmodel {
         }
     }
 
-    int isCorrectGuess(char letter){//0 = guessed before, -1=false (incorrect Guess) 1 = true (correct guess)
+    String isCorrectGuess(char letter){//0 = guessed before, -1=false (incorrect Guess) 1 = true (correct guess)
         if (guessedLetters.contains(letter)){
-            return 0;
+            return letter + " has already been guessed" ;
         }
         guessedLetters.add(letter);
-        int correctGuess = -1;
+        String correctGuess = "There are no "+letter+"'s in the word" ;
         for (int i = 0; i < wordPicked.length; i++) {
             if (wordPicked[i] == letter) {
                 guessProgress[i] = letter;
-                correctGuess = 1;
+                correctGuess = "Your guess is correct";
             }
         }
-        if (correctGuess==-1){guesses-=1;}
+        if (correctGuess.equals("There are no " + letter + "'s in the word")){guesses-=1;}
         setGameCode();
         return correctGuess;
     }

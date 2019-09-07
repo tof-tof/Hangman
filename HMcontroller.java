@@ -19,7 +19,7 @@ class HMcontroller {
 
     ArrayList<Character> getGuessedLetters(){ return model.getGuessedLetters(); }
 
-    int isCorrectGuess(char letter){
+    String isCorrectGuess(char letter){
          return model.isCorrectGuess(letter);
      }
 
