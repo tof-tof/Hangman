@@ -2,13 +2,13 @@ package Hangman;
 
 import acm.graphics.*;
 public class HangmanCanvas extends GCanvas {
-    public void run(){
-        reset();
-    }
     /** Resets the display so that only the scaffold appears */
-    public void reset() {
-        GLine scaffoldVertical = new GLine(10,20,LINE_WIDTHS,SCAFFOLD_HEIGHT);
+    void reset() {
+        removeAll();
+        GLine scaffoldVertical = new GLine(corner.getX(),corner.getY(),corner.getX(), corner.getY()+SCAFFOLD_HEIGHT);
+        GLine scaffoldHorizontal = new GLine(corner.getX(),corner.getY(),corner.getX()+BEAM_LENGTH, corner.getY());
         add(scaffoldVertical);
+        add(scaffoldHorizontal);
     }
     /**
      * Updates the word on the screen to correspond to the current
@@ -28,8 +28,9 @@ public class HangmanCanvas extends GCanvas {
         /* You fill this in */
     }
     /* Constants for the simple version of the picture (in pixels) */
+    private static final GPoint corner = new GPoint(75,75);
     private static final int SCAFFOLD_HEIGHT = 360;
-    private static final int LINE_WIDTHS = 10;
+    private static final int LINE_WIDTHS = 20;
     private static final int BEAM_LENGTH = 144;
     private static final int ROPE_LENGTH = 18;
     private static final int HEAD_RADIUS = 36;
