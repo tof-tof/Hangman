@@ -18,7 +18,12 @@ public class HMConsoleView extends ConsoleProgram {
     }
 
     private void printGuessOutcome(char letter){
+        String res = controller.isCorrectGuess(letter);
+        if (res.equals("There are no "+letter+"'s in the word" )){
+            canvas.noteIncorrectGuess();
+        }
         println(controller.isCorrectGuess(letter));
+
     }
 
     private void printResult(){
