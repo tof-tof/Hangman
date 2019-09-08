@@ -50,7 +50,8 @@ public class HangmanCanvas extends GCanvas {
     void displayGuessedLetters(ArrayList<Character> guessedLetters){
         showLetters.setLabel(String.valueOf(guessedLetters));
     }
-    /**TODO
+
+    /**
      * Updates the display to correspond to an incorrect guess by the
      * user. Calling this method causes the next body part to appear
      * on the scaffold and adds the letter to the list of incorrect

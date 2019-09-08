@@ -1,11 +1,11 @@
 package Hangman;
-public class HangmanLexicon {
+public class HangmanLexicon implements HMLexicon {
     /** Returns the number of words in the lexicon. */
     public int getWordCount() {
         return 10;
     }
     /** Returns the word at the specified index. */
-    String getWord(int index) {
+    public String getWord(int index) {
         switch (index) {
             case 0: return "BUOY";
             case 1: return "COMPUTER";

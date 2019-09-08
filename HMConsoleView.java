@@ -1,11 +1,14 @@
 package Hangman;
 import acm.program.*;
 
+import java.io.IOException;
+
 public class HMConsoleView extends ConsoleProgram {
     private HangmanCanvas canvas;
     private HMcontroller controller = new HMcontroller();
     public static final int WINDOW_WIDTH = 1100;
     public static final int WINDOW_HEIGHT = 800;
+
 
 
     @Override
@@ -81,7 +84,7 @@ public class HMConsoleView extends ConsoleProgram {
         exit();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         new HMConsoleView().start(args);
     }
 }

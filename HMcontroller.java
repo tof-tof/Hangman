@@ -1,10 +1,12 @@
 package Hangman;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 class HMcontroller {
 
     private HMmodel model = new HMmodel();
+
     String getGuessProgress(){
         return  new String(model.getGuessProgress());
     }

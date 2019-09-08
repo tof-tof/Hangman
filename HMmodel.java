@@ -1,11 +1,12 @@
 package Hangman;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 class HMmodel {
 
-    private HangmanLexicon lexicon = new HangmanLexicon();
+    private HMLexicon lexicon = new HMFileLexicon();
     private char[] wordPicked;
     private char[] guessProgress;
     private int gameCode =0; //-1= game lost; 0 = game in play; 1=game won
@@ -25,10 +26,9 @@ class HMmodel {
     ArrayList<Character> getGuessedLetters(){ return guessedLetters; }
 
     void setWordPicked(){
-        int randomInt = (int)(10.0 * Math.random());
+        int randomInt = (int) (Math.random() * lexicon.getWordCount());
         this.wordPicked = lexicon.getWord(randomInt).toCharArray();
         //System.out.println("after swp "+ new String(wordPicked));
-
     }
 
     void ResetGuessProgress(){
