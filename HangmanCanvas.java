@@ -63,10 +63,44 @@ public class HangmanCanvas extends GCanvas {
             add(head);
         }
         else if (partsVisible==1){
-            GLine body = new GLine(ropeEnd.getX(),ropeEnd.getY()+HEAD_RADIUS*2,bodyEnd.getX(),bodyEnd.getY());
+            GLine body = new GLine(bodyStart.getX(),bodyStart.getY(),bodyEnd.getX(),bodyEnd.getY());
             add(body);
         }
+        else if (partsVisible==2){
+            GLine leftUpperArm = new GLine(bodyStart.getX(),leftArmCrook.getY(),leftArmCrook.getX(),leftArmCrook.getY());
+            GLine leftLowerArm = new GLine(leftArmCrook.getX(),leftArmCrook.getY(),leftArmCrook.getX(),leftArmCrook.getY()+LOWER_ARM_LENGTH);
+            add(leftUpperArm);
+            add(leftLowerArm);
+        }
+        else if (partsVisible==3){
+            GLine rightUpperArm = new GLine(bodyStart.getX(),rightArmCrook.getY(),rightArmCrook.getX(),rightArmCrook.getY());
+            GLine rightLowerArm = new GLine(rightArmCrook.getX(),rightArmCrook.getY(),rightArmCrook.getX(),rightArmCrook.getY()+LOWER_ARM_LENGTH);
+            add(rightUpperArm);
+            add(rightLowerArm);
+        }
+        else if (partsVisible==4){
+            GLine leftUpperLeg = new GLine(bodyStart.getX(),rightLegCrook.getY(),leftLegCrook.getX(),leftLegCrook.getY());
+            GLine leftLowerLeg = new GLine(leftLegCrook.getX(),leftLegCrook.getY(),leftFootStart.getX(),leftFootStart.getY());
+            add(leftUpperLeg);
+            add(leftLowerLeg);
+        }
+        else if (partsVisible==5){
+            GLine rightUpperLeg = new GLine(bodyStart.getX(),rightLegCrook.getY(),rightLegCrook.getX(),rightLegCrook.getY());
+            GLine rightLowerLeg = new GLine(rightLegCrook.getX(),rightLegCrook.getY(),rightFootStart.getX(),rightFootStart.getY());
+            add(rightUpperLeg);
+            add(rightLowerLeg);
+        }
+        else if (partsVisible==6){//todo
+           GLine leftFoot = new GLine(leftFootStart.getX(),leftFootStart.getY(),leftFootStart.getX()-FOOT_LENGTH,leftFootStart.getY());
+           add(leftFoot);
+        }
+        else if (partsVisible==7){//todo
+            GLine rightFoot = new GLine(rightFootStart.getX(),rightFootStart.getY(),rightFootStart.getX()+FOOT_LENGTH,rightFootStart.getY());
+            add(rightFoot);
+        }
+
         partsVisible+=1;
+
 
     }
     /* Constants for the simple version of the picture (in pixels) */
@@ -84,12 +118,19 @@ public class HangmanCanvas extends GCanvas {
     private static final int FOOT_LENGTH = 28;
 
     private Font wordFont = new Font("Monospaced", Font.BOLD,40);
-    private Font lettersFont = new Font("Monospaced", Font.PLAIN,25);
+    private Font lettersFont = new Font("Monospaced", Font.PLAIN,20);
     private static final GPoint corner = new GPoint(75,40);
     private static final GPoint wordPos = new GPoint(corner.getX(),corner.getY()+SCAFFOLD_HEIGHT+50);
-    private static final GPoint LettersPos = new GPoint(10,wordPos.getY()+30);
+    private static final GPoint LettersPos = new GPoint(7,wordPos.getY()+30);
     private static final GPoint ropeEnd = new GPoint(corner.getX()+BEAM_LENGTH,corner.getY()+ROPE_LENGTH);
+    private static final GPoint bodyStart = new GPoint(ropeEnd.getX(),ropeEnd.getY()+HEAD_RADIUS*2);
     private static final GPoint bodyEnd = new GPoint(ropeEnd.getX(),ropeEnd.getY()+HEAD_RADIUS*2+BODY_LENGTH);
+    private static final GPoint leftArmCrook = new GPoint(bodyStart.getX()-UPPER_ARM_LENGTH,bodyStart.getY()+ARM_OFFSET_FROM_HEAD);
+    private static final GPoint rightArmCrook = new GPoint(bodyStart.getX()+UPPER_ARM_LENGTH,leftArmCrook.getY());
+    private static final GPoint leftLegCrook = new GPoint(bodyEnd.getX()-HIP_WIDTH,bodyEnd.getY());
+    private static final GPoint rightLegCrook = new GPoint(bodyEnd.getX()+HIP_WIDTH,bodyEnd.getY());
+    private static final GPoint leftFootStart = new GPoint(leftLegCrook.getX(),leftLegCrook.getY()+LEG_LENGTH);
+    private static final GPoint rightFootStart = new GPoint(rightLegCrook.getX(),rightLegCrook.getY()+LEG_LENGTH);
 
 
 }

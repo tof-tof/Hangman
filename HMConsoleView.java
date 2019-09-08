@@ -4,8 +4,8 @@ import acm.program.*;
 public class HMConsoleView extends ConsoleProgram {
     private HangmanCanvas canvas;
     private HMcontroller controller = new HMcontroller();
-    public static final int WINDOW_WIDTH = 900;
-    public static final int WINDOW_HEIGHT = 700;
+    public static final int WINDOW_WIDTH = 1100;
+    public static final int WINDOW_HEIGHT = 800;
 
 
     @Override
@@ -22,7 +22,7 @@ public class HMConsoleView extends ConsoleProgram {
         if (res.equals("There are no "+letter+"'s in the word" )){
             canvas.noteIncorrectGuess();
         }
-        println(controller.isCorrectGuess(letter));
+        println(res);
 
     }
 
