@@ -15,4 +15,3 @@ and one which decides what to do with user input.
 
 The game runs from the main method in the `HMview.java` file, which depends on the `HMcontroller.java` file, which depends on the `HMmodel.java` file
 
-Note: If notebooks aren't rendering correctly, download and run, or use an [Online Notebook Viewer](http://nbviewer.jupyter.org/)
