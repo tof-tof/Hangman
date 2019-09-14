@@ -13,6 +13,7 @@ class HMmodel {
     private int guesses =8; //at end of testing, change to 8
     private ArrayList<Character> guessedLetters= new ArrayList<Character>();
 
+
     int getGameCode(){
         return gameCode;
     }
@@ -22,6 +23,7 @@ class HMmodel {
     void resetGameCode(){ gameCode=0; }
     void resetGuesses(){guesses =8;}
     int getGuesses(){ return guesses; }
+    ArrayList<String> getWordList(){return lexicon.getWordList();}
 
     ArrayList<Character> getGuessedLetters(){ return guessedLetters; }
 
@@ -45,7 +47,7 @@ class HMmodel {
         }
     }
 
-    String isCorrectGuess(char letter){//0 = guessed before, -1=false (incorrect Guess) 1 = true (correct guess)
+    String isCorrectGuess(char letter){
         if (guessedLetters.contains(letter)){
             return letter + " has already been guessed" ;
         }

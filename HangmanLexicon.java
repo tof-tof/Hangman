@@ -1,4 +1,8 @@
 package Hangman;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class HangmanLexicon implements HMLexicon {
     /** Returns the number of words in the lexicon. */
     public int getWordCount() {
@@ -19,6 +23,9 @@ public class HangmanLexicon implements HMLexicon {
             case 9: return "ZIRCON";
             default: throw new IllegalArgumentException("getWord: Illegal index");
         }
+    }
+    public ArrayList<String> getWordList(){
+        return new ArrayList<String>(Arrays.asList("BUOY", "COMPUTER","CONNOISSEUR","DEHYDRATE","FUZZY","HUBBUB","KEYHOLE", "QUAGMIRE", "SLITHER", "ZIRCON"));
     }
 }
 

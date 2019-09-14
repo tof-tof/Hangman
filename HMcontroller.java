@@ -25,6 +25,8 @@ class HMcontroller {
          return model.isCorrectGuess(letter);
      }
 
+     ArrayList<String> getWordList(){return model.getWordList();}
+
     void setupGame(){
         model.resetGameCode();
         model.resetGuesses();
@@ -32,6 +34,8 @@ class HMcontroller {
         model.setWordPicked();
         model.ResetGuessProgress();
     }
+
+
 
 
     String guessesLeft(){

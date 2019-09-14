@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class HMFileLexicon implements HMLexicon{
     private ArrayList<String> wordList = new ArrayList<String>();
 
-    public HMFileLexicon() {
+
+    HMFileLexicon() {
         String fileName = "C:\\Users\\tofun\\OneDrive - Nexus365\\portfolio work\\src\\Hangman\\HangmanLexicon.txt";
         /*
         Scanner s = new Scanner(new File(fileName));
@@ -39,7 +40,14 @@ public class HMFileLexicon implements HMLexicon{
 
     @Override
     public String getWord(int index) {
-        return wordList.get(index);
+        if (index<wordList.size()) {
+            return wordList.get(index);
+        }
+        else throw new IllegalArgumentException("getWord: Illegal index");
+    }
+
+    public ArrayList<String> getWordList(){
+        return wordList;
     }
 
 }
