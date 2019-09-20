@@ -9,7 +9,7 @@ for views, but since the view is the point from which the program is always the 
 it is not as important to have an interface.) This time, as well as the controller, the view will have a solver class in it, so an interface will be made 
 for solvers.
 
-##Hangman solver strategy?
+## Hangman solver strategy?
 
 But what is the best strategy to play hangman?
 
