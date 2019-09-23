@@ -34,7 +34,7 @@ public class HMComputerView {
 
     public static void main(String[] args) {
         HMComputerView computerView = new HMComputerView();
-        computerView.startGame(890);
+        computerView.startGame(100);
     }
 
 

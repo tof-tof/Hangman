@@ -1,7 +1,6 @@
 package Hangman;
 import acm.program.*;
 
-import java.io.IOException;
 
 public class HMConsoleView extends ConsoleProgram {
     private HangmanCanvas canvas;
@@ -16,7 +15,7 @@ public class HMConsoleView extends ConsoleProgram {
         super.init();
         canvas = new HangmanCanvas();
         add(canvas);
-        setFont("DialogInput-14");
+        setFont("DialogInput-21");
 
     }
 

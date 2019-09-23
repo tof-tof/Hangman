@@ -1,6 +1,5 @@
 package Hangman;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -70,19 +69,19 @@ public class HMStrategySolver implements HMSolver{
         }
     }
 
-    private void narrowByIn(ArrayList<Integer> charplaces){
-        ArrayList<String> newwordOptions = new ArrayList<String>();
+    private void narrowByIn(ArrayList<Integer> charPlaces){
+        ArrayList<String> newWordOptions = new ArrayList<String>();
         for (String word : wordOptions) {
             char[] wordArray = word.toCharArray();
             boolean valid = true;
             int i = 0;
-            while (i<charplaces.size()&&valid){
-                if (wordArray[charplaces.get(i)] != lastGuess) valid=false;
+            while (i< charPlaces.size()&&valid){
+                if (wordArray[charPlaces.get(i)] != lastGuess) valid=false;
                 i++;
             }
-            if (valid) newwordOptions.add(word);
+            if (valid) newWordOptions.add(word);
         }
-        wordOptions=newwordOptions;
+        wordOptions= newWordOptions;
         setLetterFreq();
     }
 
