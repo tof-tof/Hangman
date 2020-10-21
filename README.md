@@ -15,5 +15,5 @@ and one which decides what to do with user input.
 
 The game runs from the main method in the `HMview.java` file, which depends on the `HMcontroller.java` file, which depends on the `HMmodel.java` file
 
-## extensions
+## Extensions
 See the ComputerPlayer and graphics branches to discover how I use the new model to create a GUI-based version and an interface for a computer solver  
