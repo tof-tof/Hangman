@@ -9,7 +9,7 @@ What do you do when you have an hour or so to spare? `mainController.java` has a
 * Guessing an incorrect letter a second time should be counted as another wrong guess.
 
 ## Approach 2: Model-View-Controller
-The all-in-one method will play a decent game as it is, must what if one wanted change some of the textbook rules, for example, adapt the more popular rule that repeat guesses are not counted as incorrect? The all in one method does not allow one to adapt easily to changing requirements, hence the need for the MVC model.
+The all-in-one method will play a decent game as it is, must what if one wanted change some of the textbook rules, for example, adapt the more popular rule that repeat guesses are not counted as incorrect? What if one wanted to change the game from a console-based game to a GUI one? The all in one method does not allow one to adapt easily to changing requirements, hence the need for the MVC model.
 This splits the game across three files, one which holds the program logic and game state, one which handles user intraction, 
 and one which decides what to do with user input.
 
